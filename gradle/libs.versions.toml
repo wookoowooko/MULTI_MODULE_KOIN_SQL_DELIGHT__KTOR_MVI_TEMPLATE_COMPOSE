@@ -1,19 +1,31 @@
 [versions]
 agp = "8.7.1"
-kotlin = "2.0.0"
+kotlin = "2.0.21"
 coreKtx = "1.13.1"
 junit = "4.13.2"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
 lifecycleRuntimeKtx = "2.8.6"
 activityCompose = "1.9.3"
-composeBom = "2024.04.01"
+composeBom = "2024.10.00"
+appcompat = "1.7.0"
+material = "1.12.0"
+jetbrainsKotlinJvm = "2.0.21"
+kotlinx-coroutines-core = "1.9.0"
+compose-navigation = "2.8.3"
+compose-plugin = "1.7.0-alpha03"
+kotlinx-date = "0.6.0"
+kotlinx-serialization = "1.7.3"
+ktor = "3.0.0"
+data-store = "1.1.1"
+lottie = "6.5.2"
+koil= "3.0.0-rc01"
+sqlDelight = "2.0.2"
+koin = "4.0.0"
+work-manager = "2.9.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
-junit = { group = "junit", name = "junit", version.ref = "junit" }
-androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
-androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
@@ -21,12 +33,132 @@ androidx-ui = { group = "androidx.compose.ui", name = "ui" }
 androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
 androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+
+#workmanager
+work-manager-coroutines = { group = "androidx.work", name = "work-runtime-ktx", version.ref = "work-manager" }
+
+##TIME
+kotlinx-date = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinx-date" }
+
+##COROUTINES
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx-coroutines-core" }
+
+#COIL
+coil-compose = {group ="io.coil-kt.coil3" ,name="coil-compose", version.ref = "koil"}
+coil-ktor3 = {group ="io.coil-kt.coil3", name = "coil-network-ktor3", version.ref = "koil"}
+
+#NAVIGATION
+navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "compose-navigation" }
+
+#ICONS
+material-icons-extended = { module = "org.jetbrains.compose.material:material-icons-extended", version.ref = "compose-plugin" }
+
+#SWRIALIZATION
+kotlinx-serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
+
+#LOTTIE
+lottie-compose = {module ="com.airbnb.android:lottie-compose", version.ref = "lottie"}
+
+#MATERIAL
+androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+
+#Dependencies of the included build-logic
+android-plugin = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
+kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+
+#KTOR
+ktor-client-core = { group = "io.ktor", name = "ktor-client-core", version.ref = "ktor" }
+ktor-engine-cio = { group = "io.ktor", name = "ktor-client-cio", version.ref = "ktor" }
+ktor-client-logging = { group = "io.ktor", name = "ktor-client-logging", version.ref = "ktor" }
+ktor-content-negotiation = { group = "io.ktor", name = "ktor-client-content-negotiation", version.ref = "ktor" }
+ktor-serialization-json = { group = "io.ktor", name = "ktor-serialization-kotlinx-json", version.ref = "ktor" }
+
+#PREFS
+data-store = { module = "androidx.datastore:datastore", version.ref = "data-store" }
+data-store-preference = { module = "androidx.datastore:datastore-preferences", version.ref = "data-store" }
+
+#SQLDELIGHT
+sqlDelightAndroid = { module = "app.cash.sqldelight:android-driver", version.ref = "sqlDelight" }
+sqlDelightRuntime = { module = "app.cash.sqldelight:runtime", version.ref = "sqlDelight" }
+sqlDelightCoroutines = { module = "app.cash.sqldelight:coroutines-extensions", version.ref = "sqlDelight" }
+
+#KOIN
+koin-core = { group = "io.insert-koin", name = "koin-core", version.ref = "koin" }
+koin-androidx-compose = { group = "io.insert-koin", name = "koin-androidx-compose", version.ref = "koin" }
+koin-androidx-workmanager = { group = "io.insert-koin", name = "koin-androidx-workmanager", version.ref = "koin" }
+
+
+#TEST
 androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
-androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+
 
 [plugins]
+#OWN
+delivery-courier-application = { id = "delivery.courier.android.application", version = "unspecified" }
+delivery-courier-application-compose = { id = "delivery.courier.android.application.compose", version = "unspecified" }
+delivery-courier-android-library = { id = "delivery.courier.android.library", version = "unspecified" }
+delivery-courier-android-library-compose = { id = "delivery.courier.android.library.compose", version = "unspecified" }
+delivery-courier-dataStore = { id = "delivery.courier.dataStore", version = "unspecified" }
+delivery-courier-feature = { id = "delivery.courier.feature", version = "unspecified" }
+delivery-courier-kotlinxSerialization = { id = "delivery.courier.kotlinxSerialization", version = "unspecified" }
+delivery-courier-jvmLibrary = { id = "delivery.courier.jvmLibrary", version = "unspecified" }
+delivery-courier-koin = { id = "delivery.courier.koin", version = "unspecified" }
+delivery-courier-sqlDelight = { id = "delivery.courier.sqlDelight", version = "unspecified" }
+delivery-courier-koin-work-manager = { id = "delivery.courier.koinWorkManger", version = "unspecified" }
+
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+android-library = { id = "com.android.library", version.ref = "agp" }
+jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
+kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+sqlDelight = { id = "app.cash.sqldelight", version.ref = "sqlDelight" }
+
+
+[bundles]
+material = [
+    "androidx-material3",
+    "material",
+]
+ktor = [
+    "ktor-client-core",
+    "ktor-engine-cio",
+    "ktor-client-logging",
+    "ktor-content-negotiation",
+    "ktor-serialization-json"
+]
+
+prefs = [
+    "data-store",
+    "data-store-preference"
+]
+
+coil = [
+    "coil-compose",
+    "coil-ktor3"
+]
+
+koin-bundle = [
+    "koin-core",
+    "koin-androidx-compose",
+]
+
+koin-work-manager = [
+    "koin-androidx-workmanager",
+    "work-manager-coroutines"
+]
+
+sql-delight-bundle = [
+    "sqlDelightAndroid",
+    "sqlDelightRuntime",
+    "sqlDelightCoroutines"
+]
+
+
 
